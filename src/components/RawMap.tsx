@@ -65,7 +65,7 @@ export const Map = forwardRef(({ initialViewState, children, onIdle }: any, ref:
           crossSourceCollisions: false,
         });
 
-        mapInstance.on('idle', (e) => {
+        mapInstance.on('load', (e) => {
           if (isMounted) setIsLoaded(true);
           if (onIdle) onIdle(e);
         });

@@ -53,7 +53,7 @@ export default function OptimizedMap() {
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
         // 4. Smooth Loading
-        map.once('idle', () => {
+        map.once('load', () => {
           map.resize();
           setIsLoaded(true);
         });

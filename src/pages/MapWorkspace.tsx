@@ -114,7 +114,12 @@ export default function MapWorkspace() {
   });
 
   // Jump map when harbour changes
+  const isInitialMount = useRef(true);
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     mapRef.current?.flyTo({
       center: [harborConfig.lng, harborConfig.lat],
       zoom: 11.5,
